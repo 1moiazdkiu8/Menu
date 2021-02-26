@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "users")
 @NamedQueries({
         @NamedQuery(name = "getAllUsers", query = "SELECT u FROM User u ORDER BY u.id DESC"),
-        @NamedQuery(name = "getUserCount", query = "SELECT COUNT(u) FROM User u"),
+        @NamedQuery(name = "getUsersCount", query = "SELECT COUNT(u) FROM User u"),
         @NamedQuery(name = "checkRegistername", query = "SELECT COUNT(u) FROM User u WHERE u.name = :name"),
         @NamedQuery(name = "checkLoginUserAndPassword", query = "SELECT u FROM User u WHERE u.delete_flag = 0 AND u.name = :name AND u.password = :pass")
 })
