@@ -15,13 +15,13 @@ import models.User;
  * Servlet implementation class UserNewServlet
  */
 @WebServlet("/users/new")
-public class UserNewServlet extends HttpServlet {
+public class UsersNewServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserNewServlet() {
+    public UsersNewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -28,9 +28,10 @@ public class UserValidator {
             return "ユーザー名を入力してください。";
 
         }
+
         if (nameDuplicateCheckFlag) {
             EntityManager em = DBUtil.createEntityManager();
-            long users_count = (long) em.createNamedQuery("checkRegisterdName", Long.class).setParameter("name", name)
+            long users_count = (long) em.createNamedQuery("checkRegisteredName", Long.class).setParameter("name", name)
                     .getSingleResult();
             em.close();
             if (users_count > 0) {
