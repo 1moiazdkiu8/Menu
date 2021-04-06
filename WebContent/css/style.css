@@ -8,7 +8,7 @@ body {
 #header {
     width: 100%;
     height: 70px;
-    background-color: #333333;
+    background-color: #fbe0a2;
 }
 
 #content {
@@ -18,11 +18,8 @@ body {
 }
 
 h1 {
-    width: 94%;
-    padding-top: 17px;
-    padding-left: 3%;
     font-size: 24px;
-    color: #eeeeee;
+    display: inline;
 }
 
 h2 {
@@ -90,6 +87,7 @@ button {
     color: #721c24;
     background-color: #f8d7da;
 }
+
 table#user_list th {
     width: 30%;
     padding: 10px 2%;
@@ -108,4 +106,31 @@ tr.row0 {
 }
 select {
     height: 30px;
+}
+#header_menu {
+    width: 57%;
+    padding-top: 17px;
+    padding-left: 3%;
+    display: inline-block;
+}
+
+#user_name {
+    color: #333333;
+    width: 36%;
+    padding-right: 3%;
+    text-align: right;
+    display: inline-block;
+}
+
+#header a {
+    color: #ff9f40;
+    text-shadow:1px 0 1px #f5b829;
+    font-weight:bold
+}
+
+h1 a {
+    color: #eeeeee;
+}
+h3 {
+    font-size: larger;
 }

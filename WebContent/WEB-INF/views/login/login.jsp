@@ -14,10 +14,9 @@
         <h2>ログイン</h2>
         <form method="POST" action="<c:url value='/login' />">
             <label for="name">ユーザー名</label><br /> <input type="text" name="name"
-                value="${name}" /> <br />
-            <br /> <label for="password">パスワード</label><br /> <input
-                type="password" name="password" /> <br />
-            <br /> <input type="hidden" name="_token" value="${_token}" />
+                value="${name}" /> <br /> <br /> <label for="password">パスワード</label><br />
+            <input type="password" name="password" /> <br /> <br /> <input
+                type="hidden" name="_token" value="${_token}" />
             <button type="submit">ログイン</button>
         </form>
     </c:param>
