@@ -49,7 +49,7 @@ public class LoginFilter implements Filter {
 
             User u = (User) session.getAttribute("login_user");
 
-            if (!servlet_path.equals("login")) {
+            if (!servlet_path.equals("/login")) {
                 if (u == null) {
                     ((HttpServletResponse) response).sendRedirect(context_path + "/login");
                     return;
