@@ -134,3 +134,20 @@ h1 a {
 h3 {
     font-size: larger;
 }
+table#menu_list th {
+    font-weight: bold;
+    padding: 10px 2%;
+}
+
+table#menu_list .menus_name {
+    width: 20%;
+    padding: 10px 2%;
+}
+
+table#menu_list .menu_action {
+    width: 20%;
+}
+table#menu_list .meu_date {
+    width: 13%;
+}
+
