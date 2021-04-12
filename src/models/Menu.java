@@ -1,5 +1,6 @@
 package models;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -30,6 +31,9 @@ public class Menu {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Column(name = "menu_date", nullable = false)
+    private Date menu_date;
+
     @Column(name = "menu_name", length = 255, nullable = false)
     private String menu_name;
 
@@ -57,6 +61,14 @@ public class Menu {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Date getMenu_date() {
+        return menu_date;
+    }
+
+    public void setMenu_date(Date menu_date) {
+        this.menu_date = menu_date;
     }
 
     public String getMenu_name() {
