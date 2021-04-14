@@ -25,7 +25,7 @@
 
                             <td class="menu_name"><c:out value="${menu.menu_name}" /></td>
                             <td class="menu_action"><a
-                                href="<c:url value='/menus/show?id={menu.id}'/>">詳細</a></td>
+                                href="<c:url value='/menus/show?id=${menu.id}'/>">詳細</a></td>
                             <td class="menu_date"><fmt:formatDate
                                     value='${menu.menu_date}' pattern='yyyy-MM-dd' /></td>
                         </tr>

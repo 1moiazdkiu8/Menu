@@ -150,4 +150,6 @@ table#menu_list .menu_action {
 table#menu_list .meu_date {
     width: 13%;
 }
-
+pre {
+    font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans-serif;
+}
