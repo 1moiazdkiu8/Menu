@@ -36,7 +36,7 @@ public class MenusNewServlet extends HttpServlet {
 
         Menu m = new Menu();
         m.setMenu_date(new Date(System.currentTimeMillis()));
-        request.setAttribute("Menu", m);
+        request.setAttribute("menu", m);
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/menus/new.jsp");
         rd.forward(request, response);

@@ -36,11 +36,11 @@ public class MenusIndexServlet extends HttpServlet {
             throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        int page= 1;
+        int page;
         try {
             page = Integer.parseInt(request.getParameter("page"));
         } catch (NumberFormatException e) {
-
+            page = 1;
         }
 
         List<Menu> menus = em.createNamedQuery("getAllMenus", Menu.class)
