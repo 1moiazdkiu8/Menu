@@ -139,7 +139,7 @@ table#menu_list th {
     padding: 10px 2%;
 }
 
-table#menu_list .menus_name {
+table#menu_list .menu_name {
     width: 20%;
     padding: 10px 2%;
 }
@@ -147,7 +147,7 @@ table#menu_list .menus_name {
 table#menu_list .menu_action {
     width: 20%;
 }
-table#menu_list .meu_date {
+table#menu_list .menu_date {
     width: 13%;
 }
 pre {
