@@ -1,6 +1,7 @@
-package controllers.users;
+package controllers.menus;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -12,22 +13,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.User;
-import models.validators.UserValidator;
+import models.Menu;
+import models.validators.MenuValidator;
 import utils.DBUtil;
-import utils.EncryptUtil;
 
 /**
- * Servlet implementation class EmployeesCreateServlet
+ * Servlet implementation class MenusUpdateServlet
  */
-@WebServlet("/users/create")
-public class UsersCreateServlet extends HttpServlet {
+@WebServlet("/menus/update")
+public class MenusUpdateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UsersCreateServlet() {
+    public MenusUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,43 +38,40 @@ public class UsersCreateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String _token = request.getParameter("_token");
-
         if (_token != null && _token.equals(request.getSession().getId())) {
-
             EntityManager em = DBUtil.createEntityManager();
 
-            User u = new User();
+            Menu m = em.find(Menu.class, (Integer) (request.getSession().getAttribute("menu_id")));
 
-            u.setName(request.getParameter("name"));
-            u.setPassword(
-                    EncryptUtil.getPasswordEncrypt(
-                            request.getParameter("password"),
-                            (String) this.getServletContext().getAttribute("pepper")));
+            m.setMenu_date(Date.valueOf(request.getParameter("menu_date")));
+            m.setMenu_name(request.getParameter("menu_name"));
+            m.setContent(request.getParameter("content"));
+            m.setUpdated_at(new Timestamp(System.currentTimeMillis()));
 
-            Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-            u.setCreated_at(currentTime);
-            u.setUpdated_at(currentTime);
-            u.setDelete_flag(0);
-
-            List<String> errors = UserValidator.validate(u, true, true);
+            List<String> errors = MenuValidator.validate(m);
             if (errors.size() > 0) {
                 em.close();
 
                 request.setAttribute("_token", request.getSession().getId());
-                request.setAttribute("user", u);
+                request.setAttribute("menu", m);
                 request.setAttribute("errors", errors);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/users/new.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/menus/edit.jsp");
                 rd.forward(request, response);
+
             } else {
                 em.getTransaction().begin();
-
-                em.persist(u);
                 em.getTransaction().commit();
-                request.getSession().setAttribute("flush", "ユーザー登録が完了しました。");
                 em.close();
-                response.sendRedirect(request.getContextPath() + "/users/index");
+
+                request.getSession().setAttribute("flush", "更新が完了しました。");
+
+                request.getSession().removeAttribute("menu_id");
+
+                response.sendRedirect(request.getContextPath() + "/menus/index");
             }
+
         }
     }
+
 }
