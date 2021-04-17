@@ -19,5 +19,10 @@
                 type="hidden" name="_token" value="${_token}" />
             <button type="submit">ログイン</button>
         </form>
+        <br />
+        <br />
+        <h2>
+            <a href="<c:url value='/users/new'/>">新規登録</a>
+        </h2>
     </c:param>
 </c:import>

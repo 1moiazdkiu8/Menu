@@ -37,9 +37,7 @@ public class UsersCreateServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String _token = request.getParameter("_token");
 
-        if (_token != null && _token.equals(request.getSession().getId())) {
 
             EntityManager em = DBUtil.createEntityManager();
 
@@ -68,7 +66,6 @@ public class UsersCreateServlet extends HttpServlet {
                 rd.forward(request, response);
             } else {
                 em.getTransaction().begin();
-
                 em.persist(u);
                 em.getTransaction().commit();
                 request.getSession().setAttribute("flush", "ユーザー登録が完了しました。");
@@ -76,5 +73,5 @@ public class UsersCreateServlet extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/users/index");
             }
         }
-    }
+
 }
