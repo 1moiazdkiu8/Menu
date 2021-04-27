@@ -11,7 +11,7 @@
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
-        <h2>My Menu</h2>
+        <h2>みんなのMenu</h2>
         <table id="menu_list">
             <tbody>
                 <tr>

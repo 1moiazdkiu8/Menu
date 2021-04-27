@@ -6,13 +6,13 @@
     <c:param name="content">
         <c:choose>
             <c:when test="${menu !=null}">
-                <h2>メニュー 詳細ページ</h2>
+                <h2>Menu 詳細ページ</h2>
 
                 <table>
                     <tbody>
                         <tr>
                             <th>ユーザー名</th>
-                            <td><c:out value="${sessionScope.login_user.name}" /></td>
+                            <td><c:out value="${menu.user.name}" /></td>
                         </tr>
                         <tr>
                             <th>日付</th>
@@ -25,7 +25,9 @@
                         </tr>
                         <tr>
                             <th>内容</th>
-                            <td><pre><c:out value="${menu.content}" /></pre></td>
+                            <td><pre>
+                                    <c:out value="${menu.content}" />
+                                </pre></td>
                         </tr>
                         <tr>
                             <th>登録日時</th>
@@ -51,7 +53,9 @@
         </c:choose>
 
         <p>
-            <a href="<c:url value="/menus/index"/>">一覧に戻る</a>
+            <a href="<c:url value='/menus/all/index'/>">みんなのMenuに戻る</a><br /> <a
+                href="<c:url value='/menus/index'/>">My menuに戻る</a><br /> <a
+                href="<c:url value='/' />">Topページに戻る</a><br />
         </p>
     </c:param>
 </c:import>

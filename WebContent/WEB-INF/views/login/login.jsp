@@ -20,7 +20,7 @@
             <button type="submit">ログイン</button>
         </form>
         <br />
-        <br />
+        <h2>ユーザー登録はこちらから↓</h2>
         <h2>
             <a href="<c:url value='/users/new'/>">新規登録</a>
         </h2>

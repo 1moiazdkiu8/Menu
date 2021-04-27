@@ -9,5 +9,8 @@
             </div>
         </c:if>
         <h2>MENUへようこそ</h2>
+        <h2><a href = "<c:url value='menus/search'/>">今日のメニューを決める</a></h2>
+        <h2><a href = "<c:url value='/menus/new'/>">新規メニュー登録</a></h2>
+
     </c:param>
 </c:import>

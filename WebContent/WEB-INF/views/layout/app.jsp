@@ -18,7 +18,9 @@
                 </h1>
                 &nbsp;&nbsp;&nbsp;
                 <c:if test="${sessionScope.login_user !=null}">
-                    <a href="<c:url value='/menus/index' />">メニュー管理</a>&nbsp;&nbsp;&nbsp;
+                    <a href="<c:url value='/menus/index' />">My Menu</a>&nbsp;&nbsp;&nbsp;
+
+                <a href="<c:url value='/menus/all/index'/>">みんなのMenu</a>&nbsp;&nbsp;&nbsp;
                 </c:if>
             </div>
             <c:if test="${sessionScope.login_user !=null}">

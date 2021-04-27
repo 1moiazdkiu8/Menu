@@ -12,20 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Menu;
-import models.User;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class MenusIndexServlet
+ * Servlet implementation class MenusAllIndexServlet
  */
-@WebServlet("/menus/index")
-public class MenusIndexServlet extends HttpServlet {
+@WebServlet("/menus/all/index")
+public class MenusAllIndexServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MenusIndexServlet() {
+    public MenusAllIndexServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,8 +36,6 @@ public class MenusIndexServlet extends HttpServlet {
             throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        User login_user = (User)request.getSession().getAttribute("login_user");
-
         int page;
         try {
             page = Integer.parseInt(request.getParameter("page"));
@@ -46,14 +43,12 @@ public class MenusIndexServlet extends HttpServlet {
             page = 1;
         }
 
-        List<Menu> menus = em.createNamedQuery("getMyAllMenus", Menu.class)
-                .setParameter("user", login_user)
+        List<Menu> menus = em.createNamedQuery("getAllMenus", Menu.class)
                 .setFirstResult(15 * (page - 1))
                 .setMaxResults(15)
                 .getResultList();
 
-        long menus_count = (long) em.createNamedQuery("getMyMenusCount", Long.class)
-                .setParameter("user", login_user)
+        long menus_count = (long) em.createNamedQuery("getMenusCount", Long.class)
                 .getSingleResult();
 
         em.close();
@@ -67,8 +62,7 @@ public class MenusIndexServlet extends HttpServlet {
             request.getSession().removeAttribute("flush");
         }
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/menus/index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/menus/all_index.jsp");
         rd.forward(request, response);
     }
-
 }

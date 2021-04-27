@@ -68,7 +68,7 @@ public class MenusUpdateServlet extends HttpServlet {
 
                 request.getSession().removeAttribute("menu_id");
 
-                response.sendRedirect(request.getContextPath() + "/menus/index");
+                response.sendRedirect(request.getContextPath() + "/menus/all/index");
             }
 
         }
