@@ -70,7 +70,8 @@ public class UsersCreateServlet extends HttpServlet {
                 em.getTransaction().commit();
                 request.getSession().setAttribute("flush", "ユーザー登録が完了しました。");
                 em.close();
-                response.sendRedirect(request.getContextPath() + "/users/index");
+                response.sendRedirect(request.getContextPath() + "/");
+
             }
         }
 

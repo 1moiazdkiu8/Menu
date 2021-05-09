@@ -1,3 +1,4 @@
+
 package controllers.menus;
 
 import java.io.IOException;
@@ -40,6 +41,7 @@ public class MenusShowServlet extends HttpServlet {
         em.close();
 
         request.setAttribute("menu", m);
+
         request.setAttribute("_token", request.getSession().getId());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/menus/show.jsp");

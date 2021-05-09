@@ -55,11 +55,19 @@ public class MenusCreateServlet extends HttpServlet {
             m.setMenu_date(menu_date);
 
             m.setMenu_name(request.getParameter("menu_name"));
+            m.setIngredient(request.getParameter("ingredient"));
             m.setContent(request.getParameter("content"));
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             m.setCreated_at(currentTime);
             m.setUpdated_at(currentTime);
+
+            String[] mood = request.getParameterValues("mood");
+            String mood_str = mood[0];
+            for (int i = 1; i < mood.length; i++) {
+                mood_str += ("," + mood[i]);
+            }
+            m.setMood(mood_str);
 
             List<String> errors = MenuValidator.validate(m);
             if (errors.size() > 0) {

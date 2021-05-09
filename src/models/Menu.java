@@ -20,8 +20,9 @@ import javax.persistence.Table;
 @NamedQueries({
         @NamedQuery(name = "getAllMenus", query = "SELECT m FROM Menu AS m ORDER BY m.id DESC"),
         @NamedQuery(name = "getMenusCount", query = "SELECT COUNT(m) FROM Menu AS m"),
-        @NamedQuery(name = "getMyAllMenus",query = "SELECT m FROM Menu AS m WHERE m.user = :user ORDER BY m.id DESC"),
-        @NamedQuery(name = "getMyMenusCount", query ="SELECT COUNT(m) FROM Menu AS m WHERE m.user = :user")
+        @NamedQuery(name = "getMyAllMenus", query = "SELECT m FROM Menu AS m WHERE m.user = :user ORDER BY m.id DESC"),
+        @NamedQuery(name = "getMyMenusCount", query = "SELECT COUNT(m) FROM Menu AS m WHERE m.user = :user")
+
 })
 public class Menu {
     @Id
@@ -48,6 +49,12 @@ public class Menu {
 
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
+
+    @Column(name = "mood")
+    private String mood;
+
+    @Column(name = "ingredient")
+    private String ingredient;
 
     public Integer getId() {
         return id;
@@ -103,6 +110,22 @@ public class Menu {
 
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public String getMood() {
+        return mood;
+    }
+
+    public void setMood(String mood) {
+        this.mood = mood;
+    }
+
+    public String getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(String ingredient) {
+        this.ingredient = ingredient;
     }
 
 }
