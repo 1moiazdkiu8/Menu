@@ -1,41 +1,103 @@
 @CHARSET "UTF-8";
 
 body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    backgrod-color: #fef5fd;
     color: #333333;
+    font-size: 15px;
+    line-height: 2;
     font-family: "Hiragino Kaku Gothic Pro", Meiryo, "MS PGothic", Helvetica,
         Arial, sans-serif;
 }
 
 #header {
-    width: 100%;
-    height: 70px;
+    display: flex;
+    height: 10%;
     background-color: #fbe0a2;
 }
 
-#content {
-    width: 94%;
+#header a {
+    color: #ff9f40;
+    text-shadow: 1px 0 1px #f5b829;
+    font-weight: bold;
+}
+
+#header_menu {
+    padding: 0 0 0 3%;
+}
+
+#header_menu h1 a {
+    font-size: 35px;
+    letter-spacing: 5px;
+}
+
+#header_menu a {
+    font-size: 20px;
+}
+
+#user_name {
+    display: inline-block;
+    color: #333333;
+    padding: 0% 3% 0 0;
+    margin-left: auto;
+}
+
+#user_name p {
+    font-size: 20px;
+    text-align: center;
     margin-top: 15px;
-    padding-left: 3%;
+    margin-bottom: 15px;
+}
+
+#wrapper {
+    height: 100%;
+}
+
+#content {
+    min-height: 80%;
+}
+
+.contents {
+    margin-top: 1%;
+    margin-left: 3%;
+}
+
+#footer {
+    width: 100%;
+    height: 10%;
+    margin: 0 auto;
+    background-color: #fbe0a2;
+    text-align: center
 }
 
 h1 {
-    font-size: 24px;
+    font-weight: 600;
+    font-size: 35px;
     display: inline;
 }
 
+h1 a {
+    color: #eeeeee;
+}
+
 h2 {
+    font-size: 25px;
+}
+
+h3 {
     font-size: 20px;
-    margin-bottom: 15px;
+}
+
+label {
+    font-size: 20px;
 }
 
 li {
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-p {
-    margin-top: 15px;
-    margin-bottom: 15px;
 }
 
 a {
@@ -48,7 +110,7 @@ table, tr, th, td {
 }
 
 table {
-    width: 100%;
+    width: 80%;
     table-layout: fixed;
 }
 
@@ -63,32 +125,97 @@ td {
 }
 
 button {
-    font-size: 14px;
+    background-color: #1bc4fc;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
     padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #3a3a3a;
 }
 
-#footer {
-    text-align: center;
+.btn a {
+    background-color: #1bc4fc;
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #3a3a3a;
+}
+.reload input {
+    background-color: #1bc4fc;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid #3a3a3a;
+}
+.form {
+    padding: 3% 8% 0;
+}
+
+.form label {
+    font-size: 30px;
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+
+.form button {
+    font-size: 25px;
+}
+
+.reg {
+    padding: 0 8% 10%;
+}
+
+.reg h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 3px 3px 3px black;
+}
+
+.back {
+    height: 100%;
+    background-image: url(../images/top.png);
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 #flush_success {
-    width: 100%;
-    padding-top: 28px;
-    padding-left: 2%;
-    padding-bottom: 28px;
-    margin-bottom: 15px;
+    width: 20%;
+    margin-bottom: 1%;
     color: #155724;
+    border: 2px solid #155724;
     background-color: #d4edda;
 }
 
+#flush_success p {
+    font-size: 18px;
+    text-align: center;
+}
+
 #flush_error {
-    width: 100%;
-    padding-top: 28px;
-    padding-left: 2%;
-    padding-bottom: 28px;
-    margin-bottom: 15px;
+    width: 30%;
+    margin-bottom: 1%;;
+    margin-bottom: 10px;
     color: #721c24;
+    border: 2px solid #721c24;
     background-color: #f8d7da;
+}
+
+#flush_error {
+    font-size: 18px;
+    text-align: center;
+}
+
+#error_message {
+    font-size: 20px;
+    color: red;
 }
 
 table#user_list th {
@@ -113,35 +240,6 @@ select {
     height: 30px;
 }
 
-#header_menu {
-    width: 57%;
-    padding-top: 17px;
-    padding-left: 3%;
-    display: inline-block;
-}
-
-#user_name {
-    color: #333333;
-    width: 36%;
-    padding-right: 3%;
-    text-align: right;
-    display: inline-block;
-}
-
-#header a {
-    color: #ff9f40;
-    text-shadow: 1px 0 1px #f5b829;
-    font-weight: bold
-}
-
-h1 a {
-    color: #eeeeee;
-}
-
-h3 {
-    font-size: 17px;
-}
-
 table#menu_list th {
     font-weight: bold;
     padding: 10px 2%;
@@ -160,11 +258,12 @@ table#menu_list .menu_date {
     width: 13%;
 }
 
+.attention{
+    display:inline;
+    margin-left:25px;
+    color:red;
+}
 pre {
     font-family: "Hiragino Kaku Gothic Pro", Meiryo, "MS PGothic", Helvetica,
         Arial, sans-serif;
-}
-
-label {
-    font-size: 18px;
 }

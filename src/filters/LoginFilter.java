@@ -44,21 +44,23 @@ public class LoginFilter implements Filter {
         String servlet_path = ((HttpServletRequest) request).getServletPath();
 
         if (!servlet_path.matches("/css.*")) {
-            if (!servlet_path.equals("/users/new")) {
-                if (!servlet_path.equals("/users/create")) {
-                    HttpSession session = ((HttpServletRequest) request).getSession();
+            if (!servlet_path.matches("/images.*")) {
+                if (!servlet_path.equals("/users/new")) {
+                    if (!servlet_path.equals("/users/create")) {
+                        HttpSession session = ((HttpServletRequest) request).getSession();
 
-                    User u = (User) session.getAttribute("login_user");
-                    if (!servlet_path.equals("/login")) {
+                        User u = (User) session.getAttribute("login_user");
+                        if (!servlet_path.equals("/login")) {
 
-                        if (u == null) {
-                            ((HttpServletResponse) response).sendRedirect(context_path + "/login");
-                            return;
-                        }
-                    } else {
-                        if (u != null) {
-                            ((HttpServletResponse) response).sendRedirect(context_path + "/");
-                            return;
+                            if (u == null) {
+                                ((HttpServletResponse) response).sendRedirect(context_path + "/login");
+                                return;
+                            }
+                        } else {
+                            if (u != null) {
+                                ((HttpServletResponse) response).sendRedirect(context_path + "/");
+                                return;
+                            }
                         }
                     }
                 }

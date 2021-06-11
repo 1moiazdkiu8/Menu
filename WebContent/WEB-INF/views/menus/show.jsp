@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
+    <div class="contents">
         <c:choose>
             <c:when test="${menu !=null}">
                 <h2>Menu 詳細ページ</h2>
@@ -59,10 +60,11 @@
             </c:otherwise>
         </c:choose>
 
-        <p>
+        <h3>
             <a href="<c:url value='/' />">Topページに戻る</a><br /> <a
                 href="<c:url value='/menus/index'/>">My menuに戻る</a><br /> <a
                 href="<c:url value='/menus/all/index'/>">みんなのMenuに戻る</a><br />
-        </p>
+        </h3>
+        </div>
     </c:param>
 </c:import>

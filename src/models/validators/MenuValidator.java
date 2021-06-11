@@ -13,11 +13,6 @@ public class MenuValidator {
         if (!menu_name_error.equals("")) {
             errors.add(menu_name_error);
         }
-
-        String content_error = _validateContent(m.getContent());
-        if (!content_error.equals("")) {
-            errors.add(content_error);
-        }
         return errors;
     }
 
@@ -29,10 +24,4 @@ public class MenuValidator {
 
     }
 
-    private static String _validateContent(String content) {
-        if (content == null || content.equals("")) {
-            return "内容を入力してください。";
-        }
-        return "";
-    }
 }

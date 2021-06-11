@@ -46,16 +46,20 @@ public class MenusUpdateServlet extends HttpServlet {
             m.setMenu_date(Date.valueOf(request.getParameter("menu_date")));
             m.setMenu_name(request.getParameter("menu_name"));
 
-            String[] mood = request.getParameterValues("mood");
-            String mood_str = mood[0];
-            for (int i = 1; i < mood.length; i++) {
-                mood_str += ("," + mood[i]);
-            }
-            m.setMood(mood_str);
-            m.setIngredient(request.getParameter("ingredient"));
-            m.setContent(request.getParameter("content"));
-            m.setUpdated_at(new Timestamp(System.currentTimeMillis()));
+            try {
+                String[] mood = request.getParameterValues("mood");
+                String mood_str = mood[0];
+                for (int i = 1; i < mood.length; i++) {
+                    mood_str += ("," + mood[i]);
+                }
 
+                m.setMood(mood_str);
+                m.setIngredient(request.getParameter("ingredient"));
+                m.setContent(request.getParameter("content"));
+                m.setUpdated_at(new Timestamp(System.currentTimeMillis()));
+            } catch (NullPointerException e) {
+
+            }
             List<String> errors = MenuValidator.validate(m);
             if (errors.size() > 0) {
                 em.close();

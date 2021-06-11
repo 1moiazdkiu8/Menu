@@ -61,14 +61,17 @@ public class MenusCreateServlet extends HttpServlet {
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             m.setCreated_at(currentTime);
             m.setUpdated_at(currentTime);
+            try {
+                String[] mood = request.getParameterValues("mood");
+                String mood_str = mood[0];
+                for (int i = 1; i < mood.length; i++) {
+                    mood_str += ("," + mood[i]);
+                }
 
-            String[] mood = request.getParameterValues("mood");
-            String mood_str = mood[0];
-            for (int i = 1; i < mood.length; i++) {
-                mood_str += ("," + mood[i]);
+                m.setMood(mood_str);
+            } catch (NullPointerException e) {
+
             }
-            m.setMood(mood_str);
-
             List<String> errors = MenuValidator.validate(m);
             if (errors.size() > 0) {
                 em.close();

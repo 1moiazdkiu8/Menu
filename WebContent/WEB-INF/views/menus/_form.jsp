@@ -22,11 +22,10 @@
 
 <label for="user_name">ユーザー名</label>
 <br />
-<c:out value="${sessionScope.login_user.name}" />
+<h3><c:out value="${sessionScope.login_user.name}" /></h3>
 <br />
-<br />
-
 <label for="menu_name">メニュー名</label>
+<h3 class="attention">※入力必須</h3>
 <br />
 <input type="text" name="menu_name" value="${menu.menu_name}" />
 <br />

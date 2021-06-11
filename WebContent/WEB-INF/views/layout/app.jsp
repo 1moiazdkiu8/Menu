@@ -11,6 +11,7 @@
 </head>
 <body>
     <div id="wrapper">
+
         <div id="header">
             <div id="header_menu">
                 <h1>
@@ -25,13 +26,19 @@
             </div>
             <c:if test="${sessionScope.login_user !=null}">
                 <div id="user_name">
-                    <c:out value="${sessionScope.login_user.name}" />
-                    さん &nbsp;&nbsp;&nbsp; <a href="<c:url value='/logout' />">ログアウト</a>
+                    <p>
+                        <a href="<c:url value='/users/index' />"><c:out value="${sessionScope.login_user.name}" /></a>
+                        さん&nbsp;&nbsp; <a href="<c:url value='/logout' />">ログアウト</a>
+                    </p>
                 </div>
             </c:if>
         </div>
+
         <div id="content">${param.content}</div>
-        <div id="footer">by Moi.</div>
+
+        <div id="footer">Mizuki</div>
+
     </div>
+
 </body>
 </html>

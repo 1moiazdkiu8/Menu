@@ -21,7 +21,11 @@ import javax.persistence.Table;
         @NamedQuery(name = "getAllMenus", query = "SELECT m FROM Menu AS m ORDER BY m.id DESC"),
         @NamedQuery(name = "getMenusCount", query = "SELECT COUNT(m) FROM Menu AS m"),
         @NamedQuery(name = "getMyAllMenus", query = "SELECT m FROM Menu AS m WHERE m.user = :user ORDER BY m.id DESC"),
-        @NamedQuery(name = "getMyMenusCount", query = "SELECT COUNT(m) FROM Menu AS m WHERE m.user = :user")
+        @NamedQuery(name = "getMyMenusCount", query = "SELECT COUNT(m) FROM Menu AS m WHERE m.user = :user"),
+        @NamedQuery(name = "allSearchMenus", query = "SELECT m FROM Menu AS m WHERE m.mood LIKE :mood"),
+        @NamedQuery(name = "allSearchMenusCount", query = "SELECT COUNT(m) FROM Menu AS m WHERE m.mood LIKE :mood"),
+        @NamedQuery(name = "searchMenus", query = "SELECT m FROM Menu AS m WHERE m.mood LIKE :mood AND m.user = :user"),
+        @NamedQuery(name = "searchMenusCount", query = "SELECT COUNT(m) FROM Menu AS m WHERE m.mood LIKE :mood AND m.user = :user")
 
 })
 public class Menu {
@@ -41,7 +45,7 @@ public class Menu {
     private String menu_name;
 
     @Lob
-    @Column(name = "content", nullable = false)
+    @Column(name = "content")
     private String content;
 
     @Column(name = "created_at", nullable = false)

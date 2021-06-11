@@ -6,9 +6,10 @@
 
 <c:import url="../layout/app.jsp">
     <c:param name="content">
+    <div class="contents">
         <c:if test="${flush != null}">
             <div id="flush_success">
-                <c:out value="${flush}"></c:out>
+                <p><c:out value="${flush}"></c:out></p>
             </div>
         </c:if>
         <h2>みんなのMenu</h2>
@@ -52,5 +53,6 @@
         <p>
             <a href="<c:url value='/menus/new' />">新規メニュー登録</a>
         </p>
+        </div>
     </c:param>
 </c:import>

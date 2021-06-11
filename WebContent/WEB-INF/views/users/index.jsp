@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
+    <div class="contents">
         <c:if test="${flush != null}">
             <div id="flush_success">
                 <c:out value="${flush}"></c:out>
@@ -49,6 +50,6 @@
         <p>
             <a href="<c:url value='/users/new' />">新規ユーザーの登録</a>
         </p>
-
+</div>
     </c:param>
 </c:import>

@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
+    <div class="contents">
         <c:choose>
             <c:when test="${user != null}">
                 <h2>${user.name} のプロフィール</h2>
@@ -41,5 +42,6 @@
         <p>
             <a href="<c:url value='/users/index' />">一覧に戻る</a>
         </p>
+        </div>
     </c:param>
 </c:import>
