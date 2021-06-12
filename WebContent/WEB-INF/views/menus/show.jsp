@@ -50,9 +50,9 @@
                     </tbody>
                 </table>
                 <c:if test="${sessionScope.login_user.id == menu.user.id}">
-                    <p>
+                    <h3>
                         <a href="<c:url value="/menus/edit?id=${menu.id}" />">このメニューを編集する</a>
-                    </p>
+                    </h3><br/>
                 </c:if>
             </c:when>
             <c:otherwise>

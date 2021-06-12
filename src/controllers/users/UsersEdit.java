@@ -33,17 +33,18 @@ public class UsersEdit extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         EntityManager em = DBUtil.createEntityManager();
 
         User u = em.find(User.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
+        User login_user = (User) request.getSession().getAttribute("login_user");
 
-        request.setAttribute("user", u);
-        request.setAttribute("_token", request.getSession().getId());
-        request.getSession().setAttribute("user_id", u.getId());
-
+        if (login_user.getId() == u.getId()) {
+            request.setAttribute("user", u);
+            request.setAttribute("_token", request.getSession().getId());
+            request.getSession().setAttribute("user_id", u.getId());
+        }
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/users/edit.jsp");
         rd.forward(request, response);
     }

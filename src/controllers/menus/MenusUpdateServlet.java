@@ -77,9 +77,7 @@ public class MenusUpdateServlet extends HttpServlet {
                 em.close();
 
                 request.getSession().setAttribute("flush", "更新が完了しました。");
-
                 request.getSession().removeAttribute("menu_id");
-
                 response.sendRedirect(request.getContextPath() + "/menus/index");
             }
 

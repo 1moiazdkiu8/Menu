@@ -30,18 +30,14 @@
                     </tbody>
                 </table>
 
-                <p>
-                    <a href="<c:url value='/users/edit?id=${user.id}' />">このユーザーを編集する</a>
-                </p>
+                <h3>
+                    <a href="<c:url value='/users/edit?id=${user.id}' />">プロフィールを編集する</a>
+                </h3>
             </c:when>
             <c:otherwise>
                 <h2>お探しのデータは見つかりませんでした。</h2>
             </c:otherwise>
         </c:choose>
-
-        <p>
-            <a href="<c:url value='/users/index' />">一覧に戻る</a>
-        </p>
         </div>
     </c:param>
 </c:import>

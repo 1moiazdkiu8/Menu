@@ -1,0 +1,2 @@
+adjust contents design→Search by checkbox and adjust contents design
+チェックボックスによる検索機能の追加、アプリ全体のデザイン調整

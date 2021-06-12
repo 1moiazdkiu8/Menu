@@ -11,7 +11,7 @@
                     <c:import url="_form.jsp" />
                 </form>
 
-                <p><a href="#" onclick="confirmDestroy();">このユーザーを削除する</a></p>
+                <h3><a href="#" onclick="confirmDestroy();">このユーザーを削除する</a></h3>
                 <form method="POST" action="<c:url value='/users/destroy' />">
                     <input type="hidden" name="_token" value="${_token}" />
                 </form>
@@ -24,11 +24,9 @@
                 </script>
             </c:when>
             <c:otherwise>
-                <h2>お探しのデータは見つかりませんでした。</h2>
+                <h2>自分以外のプロフィールは編集できません。</h2>
             </c:otherwise>
         </c:choose>
-
-        <p><a href="<c:url value='/users/index' />">一覧に戻る</a></p>
     </div>
     </c:param>
 </c:import>

@@ -38,14 +38,12 @@ public class MenusEditServlet extends HttpServlet {
 
         Menu m = em.find(Menu.class, Integer.parseInt(request.getParameter("id")));
 
-
         em.close();
 
         User login_user = (User) request.getSession().getAttribute("login_user");
 
         if (m != null && login_user.getId() == m.getUser().getId()) {
             request.setAttribute("menu", m);
-
             request.setAttribute("_token", request.getSession().getId());
             request.getSession().setAttribute("menu_id", m.getId());
         }

@@ -25,11 +25,12 @@
             <h3>※複数選択可</h3>
             <form method="GET" action="?">
 
-                <label><input type="checkbox" name="mood" value="あっさり">あっさり</label>&nbsp;&nbsp;
-                <label><input type="checkbox" name="mood" value="がっつり">がっつり</label><br />
                 <label><input type="checkbox" name="mood" value="和">和</label>&nbsp;&nbsp;<label><input
                     type="checkbox" name="mood" value="洋">洋</label>&nbsp;&nbsp; <label><input
                     type="checkbox" name="mood" value="中">中</label>&nbsp;&nbsp;<br />
+                <label><input type="checkbox" name="mood" value="あっさり">あっさり</label>&nbsp;&nbsp;
+                <label><input type="checkbox" name="mood" value="がっつり">がっつり</label>&nbsp;&nbsp;
+                <label><input type="checkbox" name="mood" value="辛">辛</label><br />
                 <label><input type="checkbox" name="mood" value="メイン">メイン
                 </label>&nbsp;&nbsp;<label><input type="checkbox" name="mood"
                     value="副菜">副菜 </label>&nbsp;&nbsp;<label><input
@@ -40,10 +41,11 @@
                     <input type="checkbox" name="mood" value="肉">肉
                 </label>&nbsp;&nbsp; <label><input type="checkbox" name="mood"
                     value="魚">魚</label>&nbsp;&nbsp; <label><input
-                    type="checkbox" name="mood" value="葉菜">葉菜</label>&nbsp;&nbsp; <label><input
+                    type="checkbox" name="mood" value="葉茎菜類">葉茎菜類</label>&nbsp;&nbsp; <label><input
                     type="checkbox" name="mood" value="根菜">根菜</label>&nbsp;&nbsp; <label><input
                     type="checkbox" name="mood" value="イモ類">イモ類</label>&nbsp;&nbsp; <label><input
-                    type="checkbox" name="mood" value="果菜">果菜</label> <br /> <br />
+                    type="checkbox" name="mood" value="果菜">果菜</label> &nbsp;&nbsp; <label><input
+                    type="checkbox" name="mood" value="卵">卵</label> <br /> <br />
                 <h3>My Menuから検索↓</h3>
                 <button type="submit"
                     formaction="<c:url value='/menus/search/random' />">おすすめ</button>

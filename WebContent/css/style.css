@@ -61,7 +61,6 @@ body {
 }
 
 .contents {
-    margin-top: 1%;
     margin-left: 3%;
 }
 
@@ -167,7 +166,7 @@ button {
 }
 
 .reg {
-    padding: 0 8% 10%;
+    padding: 0 8% 15%;
 }
 
 .reg h2 {
