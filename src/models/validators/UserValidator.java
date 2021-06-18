@@ -28,6 +28,9 @@ public class UserValidator {
             return "ユーザー名を入力してください。";
 
         }
+        if (!(name.matches("[^\\s　]{2,8}"))) {
+            return "ユーザー名はスペースを除いた2文字以上8文字以内に設定してください。";
+        }
 
         if (nameDuplicateCheckFlag) {
             EntityManager em = DBUtil.createEntityManager();
@@ -44,6 +47,9 @@ public class UserValidator {
     private static String validatePassword(String password, Boolean passwordCheckFlag) {
         if (passwordCheckFlag && (password == null || password.equals(""))) {
             return "パスワードを入力してください。";
+        }
+        if (!(password.matches("(?=.*[A-Z])[a-zA-Z0-9]{4,12}"))) {
+            return "パスワードは大文字を含む4文字以上12文字以内の英数字で設定してください。";
         }
         return "";
     }

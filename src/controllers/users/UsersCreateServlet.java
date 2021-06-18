@@ -37,42 +37,42 @@ public class UsersCreateServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        EntityManager em = DBUtil.createEntityManager();
 
+        User u = new User();
 
-            EntityManager em = DBUtil.createEntityManager();
+        u.setName(request.getParameter("name"));
+        u.setPassword(request.getParameter("password"));
 
-            User u = new User();
+        Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+        u.setCreated_at(currentTime);
+        u.setUpdated_at(currentTime);
+        u.setDelete_flag(0);
 
-            u.setName(request.getParameter("name"));
+        List<String> errors = UserValidator.validate(u, true, true);
+        if (errors.size() > 0) {
+            em.close();
+
+            request.setAttribute("_token", request.getSession().getId());
+            request.setAttribute("user", u);
+            request.setAttribute("errors", errors);
+
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/users/new.jsp");
+            rd.forward(request, response);
+        } else {
             u.setPassword(
                     EncryptUtil.getPasswordEncrypt(
                             request.getParameter("password"),
                             (String) this.getServletContext().getAttribute("pepper")));
 
-            Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-            u.setCreated_at(currentTime);
-            u.setUpdated_at(currentTime);
-            u.setDelete_flag(0);
+            em.getTransaction().begin();
+            em.persist(u);
+            em.getTransaction().commit();
+            request.getSession().setAttribute("flush", "ユーザー登録が完了しました。");
+            em.close();
+            response.sendRedirect(request.getContextPath() + "/");
 
-            List<String> errors = UserValidator.validate(u, true, true);
-            if (errors.size() > 0) {
-                em.close();
-
-                request.setAttribute("_token", request.getSession().getId());
-                request.setAttribute("user", u);
-                request.setAttribute("errors", errors);
-
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/users/new.jsp");
-                rd.forward(request, response);
-            } else {
-                em.getTransaction().begin();
-                em.persist(u);
-                em.getTransaction().commit();
-                request.getSession().setAttribute("flush", "ユーザー登録が完了しました。");
-                em.close();
-                response.sendRedirect(request.getContextPath() + "/");
-
-            }
         }
+    }
 
 }

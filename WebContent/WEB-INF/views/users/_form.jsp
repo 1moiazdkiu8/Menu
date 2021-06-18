@@ -13,12 +13,14 @@
 </c:if>
 
 <label for="name">ユーザー名</label>
+※スペースを除いた2文字以上8文字以内
 <br />
 <input type="text" name="name" value="${user.name}" />
 <br />
 <br />
 
 <label for="password">パスワード</label>
+※大文字を含む4文字以上12文字以内の英数字
 <br />
 <input type="password" name="password" />
 <br />
